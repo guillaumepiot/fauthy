@@ -15,3 +15,60 @@ Install **Fauthy** using pip:
 ```bash
 pip install fauthy
 ```
+
+## Settings
+
+```
+# .env
+
+export JWKS_URL="..."
+export AUDIENCE="..."
+export ISSUER="..."
+```
+
+## Usage
+
+Add dependency to the routes:
+
+```
+# main.py
+
+from contextlib import asynccontextmanager
+from app.lib.jwtbearer import JWTBearer
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Start and close the MongoDB connection on startup and shutdown."""
+    app.auth = JWTBearer()
+
+    app.include_router(
+        firm_routes, tags=["Firms"], prefix="/firms", dependencies=[Depends(app.auth)]
+    )
+```
+
+Decorate views to check permissions:
+
+```
+#routes.py
+
+from app.lib.jwtbearer import get_user_claims
+from app.lib.permissions import permissions_required
+
+router = APIRouter()
+
+@router.post(
+    "",
+    response_description="Add new",
+    response_model=ModelName,
+    status_code=status.HTTP_201_CREATED,
+)
+@permissions_required("update:modelname")
+async def create(
+    db_engine: AIOEngine = Depends(get_db_engine),
+    data: ModelNameCreate = Body(...),
+    claims: str = Depends(get_user_claims),
+) -> Firm:
+    """
+    Create a new model name.
+    """
+```
