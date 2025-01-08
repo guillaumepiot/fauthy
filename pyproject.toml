@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fauthy"
+version = "0.1.0"
+description = "A lightweight and secure authentication solution for FastAPI applications, designed to simplify user management and enhance security."
+readme = "README.md"
+requires-python = ">=3.6"
+keywords = ["fastapi", "authentication", "security", "jwt", "Auth0"]
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Guillaume Piot", email = "guillaume@piot.co.uk" },
+  { name = "Ricardo Hamilton", email = "r@gemba.me" }
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
