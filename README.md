@@ -34,7 +34,8 @@ Add dependency to the routes:
 # main.py
 
 from contextlib import asynccontextmanager
-from app.lib.jwtbearer import JWTBearer
+from fauthy import JWTBearer
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -51,8 +52,7 @@ Decorate views to check permissions:
 ```python
 #routes.py
 
-from app.lib.jwtbearer import get_user_claims
-from app.lib.permissions import permissions_required
+from fauthy import get_user_claims, permissions_required
 
 router = APIRouter()
 
