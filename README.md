@@ -18,12 +18,12 @@ pip install fauthy
 
 ## Settings
 
-```
-# .env
+```Bash
+# .env file
 
-export JWKS_URL="..."
-export AUDIENCE="..."
-export ISSUER="..."
+JWKS_URL="https://YOUR_AUTH0_DOMAIN/.well-known/jwks.json"
+AUDIENCE="YOUR_AUTH0_API_IDENTIFIER"
+ISSUER="https://YOUR_AUTH0_DOMAIN/"
 ```
 
 ## Usage
