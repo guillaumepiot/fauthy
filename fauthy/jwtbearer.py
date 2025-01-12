@@ -82,7 +82,8 @@ class JWTBearer(HTTPBearer):
                     detail="Invalid token",
                 )
             return credentials
-        raise HTTPException(status_code=HTTP_401_UNAUTHORIZED, detail="No credentials")
+        raise HTTPException(status_code=HTTP_401_UNAUTHORIZED,
+                            detail="No credentials")
 
 
 def get_user_claims(
