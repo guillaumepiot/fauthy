@@ -9,8 +9,7 @@ description = "A lightweight and secure authentication solution for FastAPI appl
 readme = "README.md"
 requires-python = ">=3.6"
 keywords = ["fastapi", "authentication", "security", "jwt", "Auth0"]
-license = "MIT"
-license-files = ["LICENSE"]
+license = { file = "LICENSE" }
 authors = [
   { name = "Guillaume Piot", email = "guillaume@piot.co.uk" },
   { name = "Ricardo Hamilton", email = "r@gemba.me" }
