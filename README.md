@@ -39,7 +39,7 @@ from fauthy import JWTBearer
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Start and close the MongoDB connection on startup and shutdown."""
+    """ Application lifespan context manager. """
     app.auth = JWTBearer()
 
     app.include_router(
